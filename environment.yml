@@ -1,0 +1,10 @@
+name: signac-workshop
+channels:
+  - conda-forge
+dependencies:
+  - signac
+  - signac-flow
+  - signac-dashboard
+  - matplotlib
+  - pandas
+  - numpy
