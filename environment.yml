@@ -5,6 +5,7 @@ dependencies:
   - signac
   - signac-flow
   - signac-dashboard
+  - h5py
   - matplotlib
   - pandas
   - numpy
