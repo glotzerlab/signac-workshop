@@ -2,8 +2,9 @@ from signac_dashboard import Dashboard
 from signac_dashboard.modules import StatepointList, ImageViewer
 
 class CatDashboard(Dashboard):
+
     def job_title(self, job):
-        return ""
+        return "fps {job.sp.fps}, scale {job.sp.scale}"
 
 
 if __name__ == '__main__':
@@ -11,6 +12,6 @@ if __name__ == '__main__':
     modules.append(StatepointList())
     modules.append(ImageViewer(context='JobContext',
                                img_globs = ['cat.gif']))
-    Cats(modules = modules).main()
+    CatDashboard(modules = modules).main()
                    
     

@@ -8,6 +8,9 @@ class GifProject(flow.FlowProject):
     pass
 
 
+
+
+
 @GifProject.operation
 @GifProject.post.isfile("cat.gif")
 @flow.cmd
