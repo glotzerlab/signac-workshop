@@ -14,6 +14,7 @@ def points_generated(job):
     return "points" in job.data
 
 
+# So we know when to generate the overview plot
 @PiProject.label
 def all_calculated(*jobs):
     return all(job.doc.get("pi_estimate", False) for job in jobs)
@@ -27,7 +28,6 @@ def scatter_square(job):
     rng = np.random.default_rng(seed)
     points = rng.random(size=(num_points, 2))
     job.data['points'] = points
-    return
 
 
 @PiProject.operation
