@@ -58,7 +58,7 @@ def calculate_pi(job):
         points = job.data.points[:]
         # within the unit circle
         selected = np.linalg.norm(points, axis=1) < 1
-        job.data['selected'] = selected
+        job.data['selected'] = points[selected]
     count = sum(selected)
     num_points = job.sp.num_points
     job.doc.pi_estimate = float(4 * count/num_points)
