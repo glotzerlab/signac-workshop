@@ -32,6 +32,8 @@ special thanks: Ignacio Blanco Varela for early feedback.
 ## To run locally
 
 1. Create an environment containing signac, signac-flow, signac-dashboard, h5py, numpy, matplotlib, pandas, jupyterlab using your favorite package manager.
+You'll need `ffmpeg` for the second part.
+
 If you use conda:
 
 ```
