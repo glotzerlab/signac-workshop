@@ -85,7 +85,7 @@ def render_image(job):
 @PiProject.operation
 @flow.aggregator(aggregator_function = None, sort_by="num_points")
 @PiProject.pre(all_calculated)
-@PiProject.post.isfile(lambda job: job._project.fn('convergence.png'))
+@PiProject.post(lambda *jobs: jobs[0]._project.isfile('convergence.png'))
 def convergence_plot(*jobs):
     # get data from each job in the aggregate
     data = [job.doc.pi_estimate for job in jobs]
