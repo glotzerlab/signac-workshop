@@ -4,7 +4,7 @@ from signac_dashboard.modules import StatepointList, ImageViewer
 class CatDashboard(Dashboard):
 
     def job_title(self, job):
-        return "fps {job.sp.fps}, scale {job.sp.scale}"
+        return f"fps: {job.sp.fps}, scale: {job.sp.scale}"
 
 
 if __name__ == '__main__':
