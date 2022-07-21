@@ -15,11 +15,11 @@ special thanks: Ignacio Blanco Varela for early feedback.
 
 
 ## Contents
-* `/1-intro/`, introduces data management with signac
-  * `Signac-Example-Pi.ipynb` - introduce data management with signac.
-  * `project.py` - introduces a basic workflow
-* `/2-cats/`, get started adapting an existing project and workflow by making cat gifs!
-  * `Cats.ipynb`, demo of the few steps to follow
+* `/1-intro/` -- Introduces data management with signac
+  * `Signac-Example-Pi.ipynb` - interactive guide
+  * `project.py` - a basic workflow
+* `/2-cats/` -- make cat gifs on the command line
+  * `Cats.ipynb`, interactive guide
   * `init.py`, to make jobs with different ffmpeg settings
   * `project.py`, contains the workflow
 
