@@ -49,3 +49,10 @@ cd signac-workshop
 ```
 
 2. Launch Juptyer with `jupyter lab` and open the notebook file.
+
+
+# Thanks to those contributing cat videos
+* Erica Gardner
+* Anonymous friend with cats Sebastian and Thiago
+* Aarti Mathur
+* Chris Iacovella
