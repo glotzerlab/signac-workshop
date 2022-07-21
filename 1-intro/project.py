@@ -24,7 +24,7 @@ def scatter_square(job):
 @PiProject.operation
 @PiProject.pre.after(scatter_square)
 # use the 'truthiness' of dictionaries in Python:
-@PiProject.post.true('pi_estimated')
+@PiProject.post.true('pi_estimate')
 def calculate_pi(job):
     # copy our code here
     pass
