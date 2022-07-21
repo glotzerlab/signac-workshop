@@ -2,6 +2,7 @@ name: signac-workshop
 channels:
   - conda-forge
 dependencies:
+  - python=3.8
   - signac
   - signac-flow
   - signac-dashboard
