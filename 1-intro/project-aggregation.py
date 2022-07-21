@@ -47,12 +47,20 @@ def scatter_square(job):
 # use the 'truthiness' of dictionaries in Python:
 @PiProject.post.true('pi_estimated')
 def calculate_pi(job):
+    """Estimate pi by counting points within the unit circle.
+    Points within the unit circle are saved in the job data store. 
+    Set the job.doc.pi_estimate to the result.
+    
+    Input
+    =====
+    job, a signac job object"""
     with job.data:
         points = job.data.points[:]
+        # within the unit circle
         selected = np.linalg.norm(points, axis=1) < 1
         job.data['selected'] = selected
-        count = sum(selected)
-    num_points = job.statepoint.num_points
+    count = sum(selected)
+    num_points = job.sp.num_points
     job.doc.pi_estimate = float(4 * count/num_points)
 
 
@@ -72,6 +80,7 @@ def render_image(job):
              )
     plt.savefig(job.fn("preview.png"), format='png', dpi=150)
     plt.close(f)
+
 
 @PiProject.operation
 @flow.aggregator(aggregator_function = None, sort_by="num_points")
