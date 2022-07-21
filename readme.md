@@ -14,17 +14,6 @@ Special thanks: Ignacio Blanco Varela for early feedback.
 * Advanced interest in cat videos
 
 
-## Contents
-* `/1-intro/` -- Introduces data management with signac
-  * `Signac-Example-Pi.ipynb` - interactive guide
-  * `project.py` - a template to automate the workflow in the guide
-  * `project-aggregation.py` - demo with aggregation
-* `/2-cats/` -- make cat gifs on the command line
-  * `Cats.ipynb` - interactive guide
-  * `init.py` - to make jobs with different ffmpeg settings
-  * `project.py`, contains the workflow
-
-
 # Launching
 
 ## To run online
@@ -50,6 +39,18 @@ cd signac-workshop
 ```
 
 2. Launch Juptyer with `jupyter lab` and open the notebook file.
+
+
+
+# Contents
+* `/1-intro/` -- Introduces data management with signac
+  * `Signac-Example-Pi.ipynb` - interactive guide
+  * `project.py` - a template to automate the workflow in the guide
+  * `project-aggregation.py` - demo with aggregation
+* `/2-cats/` -- make cat gifs on the command line
+  * `Cats.ipynb` - interactive guide
+  * `init.py` - to make jobs with different ffmpeg settings
+  * `project.py`, contains the workflow
 
 
 # Thanks to those contributing cat videos
