@@ -11,12 +11,17 @@ special thanks: Ignacio Blanco Varela for early feedback.
 ## Assumed background
 * Basic familiarity with Python
 * Basic familiarity with Jupyter notebooks
+* Enjoyment of cat videos
 
 
 ## Contents
-* Signac-Example-Pi.ipynb - introduce data management with signac.
-* `project.py` - introduces a basic workflow
-* TODO - get started adapting an existing project and workflow.
+* `/1-intro/`, introduces data management with signac
+  * `Signac-Example-Pi.ipynb` - introduce data management with signac.
+  * `project.py` - introduces a basic workflow
+* `/2-cats/`, get started adapting an existing project and workflow by making cat gifs!
+  * `Cats.ipynb`, demo of the few steps to follow
+  * `init.py`, to make jobs with different ffmpeg settings
+  * `project.py`, contains the workflow
 
 
 # Launching
