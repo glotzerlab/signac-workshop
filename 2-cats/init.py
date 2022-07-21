@@ -18,11 +18,10 @@ def grid(gridspec):
 project = signac.init_project("cats")
 
 # initialize certain jobs
-for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
+for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp', 'cat4.qcp']:
     job = project.open_job({"input_file": input_file,
                             "fps": 10,
-                            "scale": "100:-1",
-                            "max_colors": 256})
+                            "scale": "100:-1"})
     job.init()
 
 
