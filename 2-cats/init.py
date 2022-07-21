@@ -17,6 +17,7 @@ def grid(gridspec):
 
 project = signac.init_project("cats")
 
+# initialize certain jobs
 for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
     job = project.open_job({"input_file": input_file,
                             "fps": 10,
@@ -25,10 +26,12 @@ for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
     job.init()
 
 
-
-combos_to_test = {"fps": [5,10,30],
-                  "scale": ["100:-1", "300:300"]}
-
+# we can also initialize grids of jobs
+combos_to_test = {
+    "input_file": ["cat1.mp4"],
+    "fps": [5,10,30],
+    "scale": ["100:-1", "300:300"]
+}
 for statepoint in grid(combos_to_test):
     job = project.open_job(statepoint)
     job.init()
