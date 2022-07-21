@@ -11,7 +11,7 @@ special thanks: Ignacio Blanco Varela for early feedback.
 ## Assumed background
 * Basic familiarity with Python
 * Basic familiarity with Jupyter notebooks
-* Enjoyment of cat videos
+* Advanced interest in cat videos
 
 
 ## Contents
