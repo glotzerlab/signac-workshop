@@ -27,9 +27,9 @@ for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
 
 # we can also initialize grids of jobs
 combos_to_test = {
-    "input_file": ["cat1.mp4", "cat2.mp4"],
-    "fps": [2,30],
-    "scale": ["100:-1", "50:50"]
+    "input_file": ["cat3.mp4", "cat2.mp4"],
+    "fps": [4,100],
+    "scale": ["400:-1", "100:100"]
 }
 for statepoint in grid(combos_to_test):
     job = project.open_job(statepoint)

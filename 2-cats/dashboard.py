@@ -6,16 +6,12 @@ class CatDashboard(Dashboard):
     def job_title(self, job):
         return f"fps: {job.sp.fps}, scale: {job.sp.scale}"
 
-
 if __name__ == '__main__':
     modules = []
     modules.append(StatepointList())
     modules.append(ImageViewer(context='JobContext',
                                img_globs = ['cat.gif'],
-                               name = "Gif"))
-    modules.append(ImageViewer(context='JobContext',
-                               img_globs = ['palette.png'],
-                               name = "Palette Preview"))
+                               name = "GIF"))
     CatDashboard(modules = modules).main()
                    
     
