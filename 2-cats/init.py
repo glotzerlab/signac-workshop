@@ -14,14 +14,12 @@ def grid(gridspec):
         yield dict(zip(gridspec.keys(), values))
 
 
-
-input_file = "test.mov"
-
 project = signac.init_project("cats")
 
-job = project.open_job({"input_file": input_file,
-                        "fps": 10,
-                        "scale": "100:-1"})
+for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
+    job = project.open_job({"input_file": input_file,
+                            "fps": 10,
+                            "scale": "100:-1"})
 job.init()
 
 

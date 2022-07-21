@@ -2,7 +2,7 @@
 
 Corwin Kerr, Brandon Butler, Kelly Wang, Bradley Dice, Sharon Glotzer
 
-special thanks: Ignacio Blanco Varela for early feedback.
+Special thanks: Ignacio Blanco Varela for early feedback.
 
 ## Goals
 * Introduce new users to the **signac** framework.
