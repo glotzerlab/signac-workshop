@@ -20,7 +20,7 @@ for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
     job = project.open_job({"input_file": input_file,
                             "fps": 10,
                             "scale": "100:-1"})
-job.init()
+    job.init()
 
 
 # for statepoint in grid():
