@@ -11,7 +11,11 @@ if __name__ == '__main__':
     modules = []
     modules.append(StatepointList())
     modules.append(ImageViewer(context='JobContext',
-                               img_globs = ['cat.gif']))
+                               img_globs = ['cat.gif'],
+                               name = "Gif"))
+    modules.append(ImageViewer(context='JobContext',
+                               img_globs = ['palette.png'],
+                               name = "Palette Preview"))
     CatDashboard(modules = modules).main()
                    
     
