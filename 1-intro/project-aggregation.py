@@ -45,7 +45,7 @@ def scatter_square(job):
 @PiProject.operation
 @PiProject.pre.after(scatter_square)
 # use the 'truthiness' of dictionaries in Python:
-@PiProject.post.true('pi_estimated')
+@PiProject.post.true('pi_estimate')
 def calculate_pi(job):
     """Estimate pi by counting points within the unit circle.
     Points within the unit circle are saved in the job data store. 
@@ -96,12 +96,18 @@ def convergence_plot(*jobs):
     
     # make the plot
     f,a = plt.subplots()
-    a.plot(num_points, data)
+    a.plot(num_points, data, 'o', label="Estimates")
+    plt.setp(a,
+             xlim = [0,50],
+             xlabel = 'Number of points scattered',
+             ylabel = 'Estimate of pi',
+             title = "Convergence of Estimate Towards the True Value of Pi",
+             )
+    a.plot([0,1000],[np.pi, np.pi], label="Pi")
     plt.savefig(project.fn("convergence.png"), dpi=200)
     plt.close()
-        
-    
-    
+
+
 
 if __name__ == '__main__':
     PiProject().main()
