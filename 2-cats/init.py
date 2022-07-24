@@ -28,7 +28,7 @@ for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
 # we can also initialize grids of jobs
 combos_to_test = {
     "input_file": ["cat3.3gp", "cat2.mp4"],
-    "fps": [10,25],
+    "fps": [10,5],
     "scale": ["400:-1", "200:300"]
 }
 for statepoint in grid(combos_to_test):
