@@ -5,7 +5,7 @@ Corwin Kerr, Brandon Butler, Kelly Wang, Bradley Dice, Sharon Glotzer
 Special thanks: Ignacio Blanco Varela for early feedback.
 
 ## Goals
-* Introduce new users to the **signac** framework.
+* Introduce new users to the **signac** framework in 1 hour.
 
 
 ## Assumed background
@@ -56,5 +56,4 @@ cd signac-workshop
 # Thanks to those contributing cat videos
 * Erica Gardner
 * Anonymous friend with cats Sebastian and Thiago
-* Aarti Mathur
 * Chris Iacovella
