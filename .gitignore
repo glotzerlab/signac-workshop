@@ -1,8 +1,9 @@
 *workspace
 *view
 
-signac.rc
-signac_project.document.json
+*/signac.rc
+**/.signac/*
+signac_project_document.json
 
 *.gif
 *.png
