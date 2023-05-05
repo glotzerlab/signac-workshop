@@ -20,8 +20,8 @@ def all_calculated(*jobs):
     return all(job.doc.get("pi_estimate", False) for job in jobs)
 
 
-@PiProject.operation
 @PiProject.post(points_generated) # the name of the label function
+@PiProject.operation
 def scatter_square(job):
     """Generate job.sp.num_points number
     of xy pairs of points within the [0,1] square 
@@ -42,10 +42,10 @@ def scatter_square(job):
 
 
 
-@PiProject.operation
 @PiProject.pre.after(scatter_square)
 # use the 'truthiness' of dictionaries in Python:
 @PiProject.post.true('pi_estimate')
+@PiProject.operation
 def calculate_pi(job):
     """Estimate pi by counting points within the unit circle.
     Points within the unit circle are saved in the job data store. 
@@ -64,9 +64,9 @@ def calculate_pi(job):
     job.doc.pi_estimate = float(4 * count/num_points)
 
 
-@PiProject.operation
 @PiProject.pre.after(calculate_pi)
 @PiProject.post.isfile('preview.png')
+@PiProject.operation
 def render_image(job):
     f,a = plt.subplots()
     with job.data:
@@ -82,10 +82,9 @@ def render_image(job):
     plt.close(f)
 
 
-@PiProject.operation
-@flow.aggregator(aggregator_function = None, sort_by="num_points")
 @PiProject.pre(all_calculated)
-@PiProject.post(lambda *jobs: jobs[0]._project.isfile('convergence.png'))
+@PiProject.post(lambda *jobs: jobs[0].project.isfile('convergence.png'))
+@PiProject.operation(aggregator = flow.aggregator(sort_by = "num_points"))
 def convergence_plot(*jobs):
     # get data from each job in the aggregate
     data = [job.doc.pi_estimate for job in jobs]
