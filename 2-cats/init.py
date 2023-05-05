@@ -15,7 +15,7 @@ def grid(gridspec):
         yield dict(zip(gridspec.keys(), values))
 
 
-project = signac.init_project("cats")
+project = signac.init_project()
 
 # initialize certain jobs
 for input_file in ['cat1.mp4', 'cat2.mp4','cat3.3gp']:
