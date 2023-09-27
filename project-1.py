@@ -64,7 +64,7 @@ def generate_stores(jobs, store_name):
 @agg_analyze_and_plot
 @RandomWalkProject.pre(all_simulated)
 @RandomWalkProject.pre(lambda *jobs: "squared_displacement" in jobs[0].data)
-@RandomWalkProject.post.true("msd_analyzed")
+@RandomWalkProject.post(lambda *jobs: jobs[0].doc.get("msd_analyzed"))
 @RandomWalkProject.operation(aggregator=std_aggregator)
 def compute_mean_squared_displacement(*jobs):
     """Compute and store the mean squared displacement for all std."""
