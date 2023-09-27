@@ -43,10 +43,17 @@ cd signac-workshop
 
 
 # Tutorial Outline
+Part 1:
 1. Explore a non-signac project in a jupyter notebook.
 2. Import the non-signac project into signac.
 3. Work with old workflow code in a Jupyter notebook.
 4. Convert Jupyter code into `FlowProject` operations in the template `project-1.py` script.
-5. Add more parts to workflow in the script, `project-2.py`.
+
+Part 2:
+1. Build up a project from scratch.
+2. Build operations in a notebook.
+3. Move operations to a `project.py` file.
+   
+    
 
 
