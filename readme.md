@@ -42,11 +42,11 @@ cd signac-workshop
 2. Launch Juptyer with `jupyter lab` and open the notebook file.
 
 
-
-# Contents
-* `/1-intro/` -- Introduces data management with signac
-  * `Signac-Example-Pi.ipynb` - interactive guide
-  * `project.py` - a template to automate the workflow in the guide
-  * `project-aggregation.py` - demo with aggregation
+# Tutorial Outline
+1. Explore a non-signac project in a jupyter notebook.
+2. Import the non-signac project into signac.
+3. Work with old workflow code in a Jupyter notebook.
+4. Convert Jupyter code into `FlowProject` operations in the template `project-1.py` script.
+5. Add more parts to workflow in the script, `project-2.py`.
 
 
