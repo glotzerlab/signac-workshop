@@ -51,9 +51,6 @@ def compute_squared_displacement(job):
 # Create aggregator that combines all replicas with a single standard deviation
 std_aggregator = flow.aggregator.groupby("standard_deviation", sort_by="replica")
 
-# agg_analyze_and_plot = RandomWalkProject.make_group(
-#     "post_processing", group_aggregator=std_aggregator
-# )
 
 def generate_stores(jobs, store_name):
     """Yield a data store for each job in jobs."""
@@ -62,7 +59,6 @@ def generate_stores(jobs, store_name):
             yield job.data[store_name]
 
 
-#@agg_analyze_and_plot
 @RandomWalkProject.pre(all_simulated)
 @RandomWalkProject.pre(lambda *jobs: "squared_displacement" in jobs[0].data)
 @RandomWalkProject.post(lambda *jobs: jobs[0].doc.get("msd_analyzed"))
