@@ -3,13 +3,11 @@
 Corwin Kerr, Brandon Butler
 
 
-
-## Goals
-* Introduce new users to the **signac** framework in 1 hour.
+**Goals**
+* Introduce new users to the **signac** framework in ~1 hour.
 * Allow database developers to explore how **signac** handles metadata.
 
-
-## Assumed background
+**Assumed background**
 * Basic familiarity with Python
 * Basic familiarity with Jupyter notebooks
 
@@ -22,7 +20,7 @@ Corwin Kerr, Brandon Butler
 
 * Allow ~5 minutes to build the environment.
 
-* Note that the MyBinder will time out after 10ish minutes --> If it happens, choose `Run --> Run all above selected cell`
+* Note that the MyBinder will time out after about 10 minutes --> If it happens, choose `Run --> Run all above selected cell`
 
 
 ## To run locally
