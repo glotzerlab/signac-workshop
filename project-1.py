@@ -6,9 +6,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
-
-
 class RandomWalkProject(flow.FlowProject):
     """Create a workflow for simulating 2D Gaussian random walks."""
     pass
@@ -31,8 +28,9 @@ def all_simulated(*jobs):
 @RandomWalkProject.operation
 def simulate(job):
     """Simulate a 2D random walk."""
-    # Copy in signacified workflow code
-    
+    # Copy in signacified workflow code and uncomment below:
+    #
+    # uncomment below:
     # job.data["positions"] = positions
     pass
 
@@ -50,9 +48,12 @@ def compute_squared_displacement(job):
     pass
 
 
-agg_analyze_and_plot = RandomWalkProject.make_group(
-    "post_processing", group_aggregator=std_aggregator
-)
+# Create aggregator that combines all replicas with a single standard deviation
+std_aggregator = flow.aggregator.groupby("standard_deviation", sort_by="replica")
+
+# agg_analyze_and_plot = RandomWalkProject.make_group(
+#     "post_processing", group_aggregator=std_aggregator
+# )
 
 def generate_stores(jobs, store_name):
     """Yield a data store for each job in jobs."""
@@ -61,7 +62,7 @@ def generate_stores(jobs, store_name):
             yield job.data[store_name]
 
 
-@agg_analyze_and_plot
+#@agg_analyze_and_plot
 @RandomWalkProject.pre(all_simulated)
 @RandomWalkProject.pre(lambda *jobs: "squared_displacement" in jobs[0].data)
 @RandomWalkProject.post(lambda *jobs: jobs[0].doc.get("msd_analyzed"))
@@ -90,4 +91,7 @@ def plot_mean_squared_displacement(job):
         msd = job.data.msd[:]
     # copy in workflow code
     pass
-    
+
+
+if __name__ == "__main__":
+    RandomWalkProject().main()
