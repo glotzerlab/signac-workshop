@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+"""Define the operations for the 2D Gaussian Random Walk project."""
+
+import flow
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+
+
+class RandomWalkProject(flow.FlowProject):
+    """Create a workflow for simulating 2D Gaussian random walks."""
+    pass
+
+
+@RandomWalkProject.label
+def simulated(job):
+    """Return whether the job simulated."""
+    return "positions" in job.data
+
+
+def all_simulated(*jobs):
+    """Return whether all jobs simulated."""
+    return all(simulated(job) for job in jobs)
+
+
+# Operations on individual jobs
+
+@RandomWalkProject.post(simulated)
+@RandomWalkProject.operation
+def simulate(job):
+    """Simulate a 2D random walk."""
+    # Copy in signacified workflow code
+    
+    # job.data["positions"] = positions
+    pass
+
+
+@RandomWalkProject.pre.after(simulate)
+@RandomWalkProject.post(lambda job: "squared_displacement" in job.data)
+@RandomWalkProject.operation
+def compute_squared_displacement(job):
+    """Compute the squared displacement for a random walk."""
+    
+    #with job.data:
+    #    positions = job.data["positions"][:]
+    
+        # Copy in workflow code and uncomment the above
+    pass
+
+
+agg_analyze_and_plot = RandomWalkProject.make_group(
+    "post_processing", group_aggregator=std_aggregator
+)
+
+def generate_stores(jobs, store_name):
+    """Yield a data store for each job in jobs."""
+    for job in jobs:
+        with job.data:
+            yield job.data[store_name]
+
+
+@agg_analyze_and_plot
+@RandomWalkProject.pre(all_simulated)
+@RandomWalkProject.pre(lambda *jobs: "squared_displacement" in jobs[0].data)
+@RandomWalkProject.post.true("msd_analyzed")
+@RandomWalkProject.operation(aggregator=std_aggregator)
+def compute_mean_squared_displacement(*jobs):
+    """Compute and store the mean squared displacement for all std."""
+    msd = np.zeros(jobs[0].doc.run_steps + 1)
+    for squared_displacement in generate_stores(jobs, "squared_displacement"):
+        msd += squared_displacement
+    msd /= len(jobs)
+    # Store msd in only first replica (job.sp.replica == 0)
+    jobs[0].data["msd"] = msd
+    jobs[0].doc.msd_analyzed = True
+
+    
+# This operation happens after computing the msd so it isn't in base.
+# Also we use pre as a filter for jobs ensuring this job only ever runs on the zeroth
+# replica for a given standard deviation.
+@RandomWalkProject.pre.true("msd_analyzed")
+@RandomWalkProject.pre(lambda job: job.sp.replica == 0)
+@RandomWalkProject.post.isfile("msd.png")
+@RandomWalkProject.operation
+def plot_mean_squared_displacement(job):
+    """Plot the MSD for all standard deviations."""
+    with job.data:
+        msd = job.data.msd[:]
+    # copy in workflow code
+    pass
+    
