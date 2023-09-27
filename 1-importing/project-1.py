@@ -73,7 +73,7 @@ def compute_mean_squared_displacement(*jobs):
     jobs[0].data["msd"] = msd
     jobs[0].doc.msd_analyzed = True
 
-    
+
 # This operation happens after computing the msd so it isn't in base.
 # Also we use pre as a filter for jobs ensuring this job only ever runs on the zeroth
 # replica for a given standard deviation.
@@ -85,8 +85,15 @@ def plot_mean_squared_displacement(job):
     """Plot the MSD for all standard deviations."""
     with job.data:
         msd = job.data.msd[:]
-    # copy in workflow code
-    pass
+    fig, ax = plt.subplots()
+    ax.plot(msd)
+    ax.set_title(f"MSD for standard deviation {job.sp.standard_deviation}")
+    ax.set_xlabel("x")
+    ax.set_ylabel("MSD")
+    # Only save figure to the first replica
+    fig.savefig(job.fn("msd.png"))
+    plt.close()
+
 
 
 if __name__ == "__main__":
