@@ -31,7 +31,7 @@ You'll need `ffmpeg` for the second part.
 If you use conda:
 
 ```
-conda create --name signac-tutorial python=3.8 signac signac-flow signac-dashboard h5py numpy matplotlib pandas jupyterlab
+conda create --name signac-tutorial python=3.10 signac signac-flow signac-dashboard h5py numpy matplotlib pandas jupyterlab
 
 git clone https://github.com/glotzerlab/signac-workshop
 cd signac-workshop
