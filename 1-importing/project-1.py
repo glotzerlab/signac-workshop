@@ -11,15 +11,19 @@ class RandomWalkProject(flow.FlowProject):
     pass
 
 
+
+# These labels help determine the status of the project:
+
 @RandomWalkProject.label
 def simulated(job):
     """Return whether the job simulated."""
     return "positions" in job.data
 
-
 def all_simulated(*jobs):
     """Return whether all jobs simulated."""
     return all(simulated(job) for job in jobs)
+
+
 
 
 # Operations on individual jobs
@@ -29,6 +33,10 @@ def all_simulated(*jobs):
 def simulate(job):
     """Simulate a 2D random walk."""
     # Copy in signacified workflow code and uncomment below:
+    #
+    #
+
+
     #
     # uncomment below:
     # job.data["positions"] = positions
@@ -48,9 +56,11 @@ def compute_squared_displacement(job):
     pass
 
 
+
+
+
 # Create aggregator that combines all replicas with a single standard deviation
 std_aggregator = flow.aggregator.groupby("standard_deviation", sort_by="replica")
-
 
 def generate_stores(jobs, store_name):
     """Yield a data store for each job in jobs."""
